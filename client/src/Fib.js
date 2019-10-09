@@ -37,11 +37,11 @@ class Fib extends Component {
     this.setState({ index: " " });
   };
 
-  renderSeenIndexes() {
+  renderSeenIndexes = () => {
     return this.state.seenIndexes;
-  }
+  };
 
-  renderValues() {
+  renderValues = () => {
     const entries = [];
 
     for (let key in this.state.values) {
@@ -51,9 +51,10 @@ class Fib extends Component {
         </div>
       );
     }
-  }
+  };
 
   render() {
+    console.log(this.renderSeenIndexes());
     return (
       <React.Fragment>
         <div>
@@ -61,12 +62,12 @@ class Fib extends Component {
             <label>Enter your index:</label>
             <input
               values={this.state.index}
-              onChange={evennt => this.setState({ index: event.target.value })}
+              onChange={event => this.setState({ index: event.target.value })}
             />
             <button>Submit</button>
           </form>
           <h3>Indexes I have seen: </h3>
-          {this.renderSeenIndexes.map(({ number }) => number).join(",")}
+          {/* {this.renderSeenIndexes.map(({ number }) => number).join(",")} */}
           <h3>Calculated Values: </h3>
           {this.renderValues()}
         </div>
